@@ -49,7 +49,7 @@ export function createStore(root) {
     const title = boundedText(input.title, 'title', 160);
     const prompt = boundedText(input.prompt, 'prompt', 16000);
     const repo = realpathSync(resolve(input.repo));
-    if (git(repo, ['rev-parse', '--show-toplevel']).replaceAll('\\', '/') !== repo.replaceAll('\\', '/')) throw new Error('Use the repository root');
+    if (realpathSync(git(repo, ['rev-parse', '--show-toplevel'])) !== repo) throw new Error('Use the repository root');
     if (git(repo, ['status', '--porcelain'])) throw new Error('Source repository must be clean; commit or preserve existing changes first');
     if (directory === repo || directory.startsWith(`${repo}${sep}`)) throw new Error('State directory must be outside the source repository');
     const id = randomUUID();
