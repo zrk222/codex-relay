@@ -10,5 +10,6 @@ artifacts/
 templates/
 personas/
 context/
-skills/
+skills/*
+!skills/codex-relay/
 envelopes/

@@ -4,6 +4,14 @@
 
 A local task inbox and resumable coding adapter for Codex. Give each task its own Git worktree, keep its Codex thread, and see what needs your answer or review.
 
+## Use visually inside Codex desktop (v0.2.0)
+
+Install the bundled `skills/codex-relay` launcher into your Codex skills directory. Then ask **“Open Codex Relay.”** Codex starts the local service and opens its live controls in the current chat's right-side browser panel. The initial implementation did not include these controls; v0.2.0 adds them.
+
+Use **New task**, enter a repository folder and request, then choose **Run with Codex**. Answer questions with **Send & continue**, stop work with **Stop run**, inspect **Review changes**, and choose **Mark reviewed & done** after inspection. State updates automatically. Normal use requires no terminal commands or external browser.
+
+This is an embedded local browser panel, not a registered native sidebar extension. The service runs on your machine and must remain running. The launcher skill restarts it when needed; tasks persist across restarts. Codex runs in saved SDK threads, separate from the current conversation. The public website remains a sample-only preview.
+
 [Explore the interactive preview](https://zrk222.github.io/codex-relay/) · [Integration design](docs/INTEGRATION.md) · [Verification scope](docs/VERIFICATION.md)
 
 The public preview uses **sample data**. It does not run agents or connect to your machine. Real coding runs locally through your existing Codex authentication.

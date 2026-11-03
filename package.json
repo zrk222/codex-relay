@@ -1,6 +1,6 @@
 {
   "name": "codex-relay",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A local task inbox and resumable coding adapter for Codex.",
   "type": "module",
   "license": "MIT",
@@ -17,6 +17,7 @@
   "files": [
     "src",
     "docs",
+    "skills/codex-relay",
     "README.md",
     "LICENSE",
     "NOTICE.md"

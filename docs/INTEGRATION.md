@@ -2,6 +2,8 @@
 
 The reusable idea is durable work with a clear next action. A developer should be able to leave a task, return to the same context, and immediately see whether the task needs a decision, review, or recovery.
 
+Version 0.2.0 adds live visual controls in a Codex desktop browser panel. Its local capability-protected service dispatches to the same store and Codex SDK runner. The launcher skill starts the service and calls Codex's open_in_codex API. This is an in-app browser surface; it does not add a native navigation item or reuse the currently active chat as the worker thread.
+
 ## Source review
 
 Reviewed DeepSeek's public prototype at commit `6337fc823ce20251c8de8085948165c81aaa701e`. Its README explicitly describes research code. The source includes a policy-controlled intake pipeline, persistent tickets, independent executor sessions, follow-up ownership, and a panel prioritizing tasks waiting for a person.

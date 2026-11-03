@@ -12,7 +12,7 @@ function run(name, args) {
   const path = `.factory/evidence/${name}.log`; writeFileSync(path, `Command: node ${args.join(' ')}\nProfile: ${process.platform} ${process.version}\nObserved: ${new Date().toISOString()}\n${output}`); return path;
 }
 const tests = run('node-tests', ['--test', ...readdirSync('tests').filter(name => name.endsWith('.test.mjs')).sort().map(name => `tests/${name}`)]);
-assert.match(readFileSync(tests, 'utf8'), /# pass 13/);
+assert.match(readFileSync(tests, 'utf8'), /# pass 16/);
 const syntax = run('syntax', ['scripts/check.mjs']);
 const live = JSON.parse(readFileSync('artifacts/live-smoke.json', 'utf8'));
 assert.equal(live.actualTestPassed, true); assert.equal(live.resumedSameThread, true); assert.equal(live.originalFilePreserved, true);
@@ -51,7 +51,7 @@ const observations = { schema: 'factory.workflow-audit.observations.v1', contrac
     observed_at: new Date().toISOString(), artifacts: [...paths, '.factory/evidence/review.md', syntax].map(path => artifact(path)) })) };
 writeFileSync('.factory/workflow-audit-observations.json', `${JSON.stringify(observations, null, 2)}\n`);
 const summary = { schema: 'codex-relay.verification.v1', observedAt: new Date().toISOString(), sourceCandidateSha256: observations.candidate_sha256,
-  environment: { platform: process.platform, node: process.version, codexSdk: '0.166.0' }, unitTests: { passed: 13, failed: 0 },
+  environment: { platform: process.platform, node: process.version, codexSdk: '0.166.0' }, unitTests: { passed: 16, failed: 0 },
   liveSmoke: live, browser: { ...browser, target: 'local loopback preview' },
   sourceFiles: candidate, limits: ['Controlled fixture and local browser observations only.', 'No production, DSH parity, field performance, full accessibility, or productivity claim.'] };
 writeFileSync('docs/verification.json', `${JSON.stringify(summary, null, 2)}\n`);

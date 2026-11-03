@@ -5,8 +5,10 @@ import { join, resolve } from 'node:path';
 import { createStore } from './store.mjs';
 import { runTask } from './runner.mjs';
 import { startServer } from './server.mjs';
+import { startPanel } from './panel.mjs';
 
-const HELP = `Codex Relay 0.1.0 — a local task inbox for Codex\n\n`
+const HELP = `Codex Relay 0.2.0 — a visual task workspace for Codex desktop\n\n`
+  + `codex-relay gui                    Start the live panel for Codex\n`
   + `codex-relay create --repo PATH --title TITLE --prompt REQUEST\n`
   + `codex-relay run TASK_ID [--reply TEXT] [--model MODEL]\n`
   + `codex-relay list | show TASK_ID | done TASK_ID | recover TASK_ID\n`
@@ -21,7 +23,7 @@ async function main() {
   } });
   const [command, id] = positionals;
   if (!command || values.help) return process.stdout.write(HELP);
-  if (!['create', 'run', 'list', 'show', 'done', 'recover', 'serve', 'preview'].includes(command)) throw new Error('Unknown command; use --help');
+  if (!['create', 'run', 'list', 'show', 'done', 'recover', 'serve', 'preview', 'gui'].includes(command)) throw new Error('Unknown command; use --help');
   const port = values.port === undefined ? 4317 : Number(values.port);
   if (!Number.isInteger(port) || port < 0 || port > 65535) throw new Error('Invalid port');
   if (command === 'preview') {
@@ -30,6 +32,7 @@ async function main() {
     return;
   }
   const store = createStore(resolve(values.state ?? process.env.CODEX_RELAY_HOME ?? join(homedir(), '.codex-relay')));
+  if (command === 'gui') { const panel = await startPanel({ store, port: values.port === undefined ? 0 : port }); console.log(JSON.stringify({ panelUrl: panel.url, pid: process.pid })); return; }
   if (command === 'serve') { const server = await startServer({ store, port }); console.log(`Local inbox: http://127.0.0.1:${server.address().port}/?mode=local`); return; }
   let result;
   if (command === 'create') result = store.create({ repo: values.repo ?? process.cwd(), title: values.title, prompt: values.prompt });

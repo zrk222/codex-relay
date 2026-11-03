@@ -1,0 +1,82 @@
+{
+  "observedAt": "2026-11-03T08:32:56.707Z",
+  "version": "0.2.0",
+  "unitTests": 16,
+  "live": {
+    "observedAt": "2026-11-03T08:31:05.198Z",
+    "liveCodex": true,
+    "providerTurns": 2,
+    "persistedCompletion": true,
+    "resumedThread": true,
+    "interactions": [
+      "create",
+      "run",
+      "answer and resume",
+      "Git diff",
+      "manual completion",
+      "reload persistence"
+    ],
+    "views": [
+      {
+        "width": 375,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "width": 768,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "width": 1200,
+        "overflow": 0,
+        "axeViolations": 0
+      }
+    ],
+    "pageErrors": [],
+    "limits": [
+      "Controlled read-only fixture. The Codex in-app panel was opened through open_in_codex; automation of that host browser is disabled in Work settings. These browser checks use a separate test-owned browser."
+    ]
+  },
+  "browser": {
+    "observedAt": "2026-11-03T08:31:10.403Z",
+    "liveCodex": false,
+    "providerTurns": 0,
+    "persistedCompletion": true,
+    "resumedThread": false,
+    "interactions": [
+      "create",
+      "run",
+      "answer and resume",
+      "Git diff",
+      "manual completion",
+      "reload persistence"
+    ],
+    "views": [
+      {
+        "width": 375,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "width": 768,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "width": 1200,
+        "overflow": 0,
+        "axeViolations": 0
+      }
+    ],
+    "pageErrors": [],
+    "limits": [
+      "Controlled read-only fixture. The Codex in-app panel was opened through open_in_codex; automation of that host browser is disabled in Work settings. These browser checks use a separate test-owned browser."
+    ]
+  },
+  "candidateSha256": "c7f169f5fd51efe1f93c79ca36514f57f1cefcc1f52bf6f23b57af0276239533",
+  "limits": [
+    "In-app panel open receipt exists. Host UI automation is disabled; no automated click inside the Codex host is claimed.",
+    "UI lifecycle uses a controlled read-only fixture. No full accessibility or production claims."
+  ]
+}

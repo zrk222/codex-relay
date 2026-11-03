@@ -2,6 +2,16 @@
 
 This release is a local Codex adapter with a static sample preview. It does not reproduce every behavior of dsh-superagent.
 
+## Desktop visual interface, v0.2.0
+
+The live local service can now be opened in a Codex desktop browser panel. Its controls create tasks, run or resume Codex, send answers, cancel turns, recover stopped work, display the actual Git diff, and mark reviewed work done. The installed launcher opens this surface in Codex; it is not a registered native sidebar plugin.
+
+16 tests pass, including capability/Origin rejection, visual action dispatch, cancellation, exclusive execution and recovery-state projection. A separate test-owned browser exercised a real two-turn Codex read-only fixture using create, run, answer/resume, diff and completion controls, then verified reload persistence. Automated axe and overflow checks passed at 375, 768 and 1200 pixels. The tests do not modify the browser-use permissions in Codex.
+
+The current Codex host returned an open-panel receipt and the operator's ambient browser context showed the local URL. In-app UI automation is disabled in Work settings, so no automated click inside that host is claimed. The same live interface was verified in a separate browser. The panel-specific hash-bound verification summary is [panel-verification.json](panel-verification.json).
+
+The following original v0.1 evidence remains scoped to that release and its controlled coding fixture.
+
 ## Observed locally on Windows
 
 - 13 Node tests passed: persisted isolated worktrees, saved-thread resumption, explicit questions, provider failures, cancellation, locks, path validation, clean-source preservation, and read-only HTTP boundaries.
