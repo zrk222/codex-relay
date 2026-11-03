@@ -2,15 +2,15 @@
 
 **Every task has a next step.**
 
-A local task inbox and resumable coding adapter for Codex. Give each task its own Git worktree, keep its Codex thread, and see what needs your answer or review.
+A local Codex plugin that keeps coding tasks, questions and reviews together inside Codex. Each task gets an isolated Git worktree and a saved Codex thread.
 
-## Use visually inside Codex desktop (v0.2.0)
+## Open inside Codex (v0.3.0)
 
-Install the bundled `skills/codex-relay` launcher into your Codex skills directory. Then ask **“Open Codex Relay.”** Codex starts the local service and opens its live controls in the current chat's right-side browser panel. The initial implementation did not include these controls; v0.2.0 adds them.
+After installing the plugin, open [Codex Relay](codex://plugins/codex-relay@relay-local/app/relay_open), or ask **“Open Codex Relay.”** Relay registers a global app entrypoint and a conversation panel. The UI is a bundled MCP App connected through the host plugin bridge; the native flow starts no localhost web server.
 
 Use **New task**, enter a repository folder and request, then choose **Run with Codex**. Answer questions with **Send & continue**, stop work with **Stop run**, inspect **Review changes**, and choose **Mark reviewed & done** after inspection. State updates automatically. Normal use requires no terminal commands or external browser.
 
-This is an embedded local browser panel, not a registered native sidebar extension. The service runs on your machine and must remain running. The launcher skill restarts it when needed; tasks persist across restarts. Codex runs in saved SDK threads, separate from the current conversation. The public website remains a sample-only preview.
+Coding runs in saved SDK threads, separate from the current conversation. Tasks persist across plugin restarts. The earlier browser panel and CLI remain optional fallbacks. See [native installation and evidence](docs/NATIVE.md) for prerequisites, host compatibility, and the exact verification scope.
 
 [Explore the interactive preview](https://zrk222.github.io/codex-relay/) · [Integration design](docs/INTEGRATION.md) · [Verification scope](docs/VERIFICATION.md)
 
@@ -20,16 +20,20 @@ The public preview uses **sample data**. It does not run agents or connect to yo
 
 ## Quickstart
 
-Requires Node.js 22.19+, Git, and local Codex authentication. This source release includes a pinned `@openai/codex-sdk` dependency; it has not been published to npm.
+Requires Node.js 22.19+, Git, a native Codex executable on PATH, and local Codex authentication. This is a GitHub source/plugin release; it has not been published to npm or the official plugin directory.
 
 ```sh
 git clone https://github.com/zrk222/codex-relay.git
 cd codex-relay
 npm ci
-node src/relay/cli.mjs preview
+npm run build:native
+codex plugin marketplace add .
+codex plugin add codex-relay@relay-local
 ```
 
-Open the printed local URL to explore the sample inbox. To install the CLI command locally, run `npm link`. Authenticate with `codex login` if your machine is not already signed in.
+Reopen Codex if it has not refreshed its plugin list. Open the Relay plugin app, then use **New task → Run with Codex → Send & continue → Review changes → Mark reviewed & done**. Setup commands are one-time; task interaction is visual. Authenticate with `codex login` if your machine is not already signed in.
+
+For the optional CLI fallback, run `npm link`. The following commands are also available:
 
 Create a task from a **clean repository root**. Keep Relay's state directory outside that repository.
 
@@ -67,7 +71,7 @@ flowchart LR
 - **Persistence:** private JSON records retain task scope, branch, worktree, thread ID, result, and reported checks.
 - **Resumption:** `run` starts a thread once and resumes its saved ID on subsequent turns.
 - **Exclusive execution:** a task lock refuses simultaneous runs. A crash leaves a lock; `recover TASK_ID` refuses to release it while the recorded process is alive.
-- **Local supervision:** the dashboard binds to `127.0.0.1` and accepts read requests only. Run and reply through the CLI. Refresh the page to update its status.
+- **Visual supervision:** the native plugin uses validated MCP tools and polls task state. The optional `gui` command starts the older authenticated browser panel; `serve` is read-only.
 - **Explicit results:** Codex returns a structured `needs_answer` or `needs_review` result. Agent-reported checks are labelled; they are not independently verified receipts.
 
 State defaults to `~/.codex-relay`. Override it with `CODEX_RELAY_HOME` or `--state PATH` on every command. Worktrees remain on disk until you deliberately remove them with Git after preserving their work; Relay never automatically deletes them.
@@ -76,7 +80,7 @@ State defaults to `~/.codex-relay`. Override it with `CODEX_RELAY_HOME` or `--st
 
 The adapter requests `workspace-write`, `approvalPolicy: never`, disabled sandbox network access, and disabled web search. Permission-requiring operations fail rather than prompting. Repository instructions and your configured Codex tools still apply. A Git worktree is **not an OS security boundary**; use a dedicated account or container for untrusted repositories. The adapter inherits your Codex configuration and does not disable or audit every configured MCP tool.
 
-The first release does not include automatic GitHub intake, a continuously running worker queue, a hosted agent, automatic merging, or an in-app chat. `run` stays in the foreground until the turn ends. Ctrl+C requests cancellation. After a crash, inspect the worktree and use `recover` before resuming. Local task text and model output may contain private data; keep the state directory private and out of Git.
+Relay does not include automatic GitHub intake, a continuously running worker queue, a hosted agent, or automatic merging. Use **Stop run** to cancel. After a crash, inspect the worktree and use **Recover stopped run** before resuming. Local task text and model output may contain private data; keep the state directory private and out of Git.
 
 Codex usage follows your account's access and limits. No productivity or cost improvement has been measured. The preview is a demonstration of the interface, not a recording of a real coding run.
 

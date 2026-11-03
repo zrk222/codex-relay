@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "relay_native": {
+      "command": "node",
+      "args": ["./dist/relay-server.mjs"],
+      "cwd": "."
+    }
+  }
+}

@@ -5,6 +5,14 @@ description: Open and use Codex Relay's live visual task workspace inside this C
 
 # Open Codex Relay inside Codex
 
+## Native plugin first
+
+When `codex-relay@relay-local` is installed, discover and call its `relay_open` MCP tool. It renders the bundled MCP App through the host plugin bridge. The native desktop entrypoint is `codex://plugins/codex-relay@relay-local/app/relay_open`. If current chat tool discovery has not refreshed, open that link or reopen Codex. Do not silently substitute the browser fallback or claim the plugin is missing because this chat has an older tool catalog. Use the native visual New task, Run, Answer, Review and Done controls.
+
+## Older browser fallback
+
+Use the following only when the native plugin is unavailable and the developer explicitly accepts the older browser panel. It is not the native plugin workflow.
+
 The user should interact with task controls in the Codex app panel, without shell commands or an external browser.
 
 1. Locate this repository's `src/relay/cli.mjs`. If `local-install.json` exists beside this SKILL.md, read its repositoryRoot as the local checkout location. Otherwise use the current attached Codex Relay checkout, or prepare a local checkout of https://github.com/zrk222/codex-relay under the task's work directory and install its locked dependencies. Check that the entry file exists; never substitute the public sample site for the live workspace.

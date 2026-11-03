@@ -1,12 +1,13 @@
 const $ = s => document.querySelector(s);
-const token = location.hash.slice(1) || sessionStorage.getItem('relay-panel-token') || '';
+const token = globalThis.relayNative ? '' : location.hash.slice(1) || sessionStorage.getItem('relay-panel-token') || '';
 if (token) sessionStorage.setItem('relay-panel-token', token);
-history.replaceState(null, '', location.pathname);
+if (!globalThis.relayNative) history.replaceState(null, '', location.pathname);
 let tasks = [], selected, filter = 'all', busy = false;
 const labels = { queued: 'Queued', working: 'Codex is working', needs_answer: 'Needs your answer', needs_review: 'Ready for your review', failed: 'Run failed', interrupted: 'Interrupted', done: 'Completed' };
 function el(tag, text, cls) { const n = document.createElement(tag); if (text !== undefined) n.textContent = text; if (cls) n.className = cls; return n; }
 function notice(text, error = false) { $('#notice').textContent = text; $('#notice').className = error ? 'error' : ''; }
 async function api(path, method = 'GET', data) {
+  if (globalThis.relayNative) return globalThis.relayNative.request(path, method, data);
   const response = await fetch(path, { method, headers: { 'x-relay-token': token, ...(method === 'POST' ? { 'Content-Type': 'application/json' } : {}) }, ...(data ? { body: JSON.stringify(data) } : {}) });
   const value = await response.json(); if (!response.ok) throw new Error(value.error ?? 'Request failed'); return value;
 }

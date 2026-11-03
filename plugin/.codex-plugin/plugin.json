@@ -1,0 +1,9 @@
+{
+  "name": "codex-relay",
+  "version": "0.3.0",
+  "description": "Your coding tasks, questions and reviews together inside Codex.",
+  "author": { "name": "Rick Katz" },
+  "homepage": "https://github.com/zrk222/codex-relay",
+  "license": "MIT",
+  "interface": { "displayName": "Codex Relay", "shortDescription": "A visual workspace for resumable coding tasks", "defaultPrompt": "Open my Codex Relay workspace." }
+}

@@ -1,0 +1,163 @@
+{
+  "version": "0.3.0",
+  "observedAt": "2026-11-03T09:46:36.785Z",
+  "scope": "Native plugin transport, launch packaging and visual controls",
+  "unitTests": 20,
+  "browser": {
+    "observedAt": "2026-11-03T09:37:56.120Z",
+    "profile": "win32-v22.22.0-Edge-controlled-MCP-host",
+    "liveCodex": false,
+    "providerTurns": 0,
+    "resumedThread": false,
+    "persistedCompletion": true,
+    "inputHashes": {
+      "plugin/dist/relay-server.mjs": "2dc95fb6d076d009bdb5d62eef0f8fb38eee77712fb35e1349b94987ac0819cc",
+      "plugin/dist/workspace.html": "0d3c49f2b08edc1554a50a1d815db361dce6b7354efaefca6fb8dfb9aaa8fed6",
+      "src/relay/native-server.mjs": "82129be01ccb5409fd55596911fb4765c63aef06a9280f597870e70c79e1e05f",
+      "src/relay/native-ui.mjs": "628c9ebb87f3b120e38fa6a47fddc03279eed12725fe69025bc431675e166806",
+      "src/relay/controller.mjs": "92d6bad6929ea2279facad5b09c103a6612ed837c386e8b1b7ecd088000f1bc4",
+      "src/relay/runner.mjs": "1bcd22d263bce6c95e2ffe6fc3b3ef7aed55ab2b8a6feea4ad26c44bf802541c",
+      "src/relay/store.mjs": "fb5cd5647804d465674fcf91d0f32196d6ef731abd55c33944f0d18aca404eb2",
+      "docs/panel.js": "a454d8f44a5ada7de313de48f05e23be180db5e7fb575491b75bb1a68156bf1a",
+      "docs/panel.css": "137e5fc20fa3ff369dd8e3d908a310c42b0f0748e5b2de0fecacd1733817039f",
+      "docs/native.css": "219b9547b97fe24f27d1e9b5f3ab8cda89ee424eae06d49929cfa55a2290095c"
+    },
+    "bridge": "MCP App SDK App + AppBridge with actual server tools",
+    "interactions": [
+      "relay_list",
+      "relay_create",
+      "relay_run",
+      "relay_diff",
+      "relay_done"
+    ],
+    "views": [
+      {
+        "theme": "light",
+        "width": 375,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "light",
+        "width": 768,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "light",
+        "width": 1200,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "dark",
+        "width": 375,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "dark",
+        "width": 768,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "dark",
+        "width": 1200,
+        "overflow": 0,
+        "axeViolations": 0
+      }
+    ],
+    "pageErrors": [],
+    "frameNetworkRequests": 2,
+    "limits": [
+      "Controlled MCP host, not a screenshot or rendering test inside the installed Codex app. Actual host rendering must be verified separately."
+    ]
+  },
+  "host": {
+    "observedAt": "2026-11-03T09:46:36.764Z",
+    "authority": "user-observed",
+    "method": "Guided native desktop deep-link and form interaction",
+    "initialFailure": "User reported New task did nothing. Host logs showed MCP initialization failure. The MCP manifest used an unexpanded plugin-root placeholder.",
+    "correction": "Use plugin-relative working directory and executable argument; refresh the resource URI and reopen the native app.",
+    "question": "The startup path is fixed and I reopened Relay. Does New task now open the form?",
+    "answer": "Yes, it works now",
+    "limits": [
+      "User-reported form interaction, not a recording of a complete coding lifecycle inside Codex."
+    ],
+    "sourceHashes": {
+      "plugin/.mcp.json": "239223d1c136a6e4423f1173f8e363ca1ef984fc8d4cf4da2320c8528746d0cf",
+      "plugin/dist/relay-server.mjs": "2dc95fb6d076d009bdb5d62eef0f8fb38eee77712fb35e1349b94987ac0819cc",
+      "plugin/dist/workspace.html": "0d3c49f2b08edc1554a50a1d815db361dce6b7354efaefca6fb8dfb9aaa8fed6"
+    }
+  },
+  "earlierProviderCheck": {
+    "observedAt": "2026-11-03T08:56:10.576Z",
+    "profile": "win32-v22.22.0-Edge-controlled-MCP-host",
+    "liveCodex": true,
+    "providerTurns": 2,
+    "resumedThread": true,
+    "persistedCompletion": true,
+    "bridge": "MCP App SDK App + AppBridge with actual server tools",
+    "interactions": [
+      "relay_list",
+      "relay_create",
+      "relay_run",
+      "relay_diff",
+      "relay_done"
+    ],
+    "views": [
+      {
+        "theme": "light",
+        "width": 375,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "light",
+        "width": 768,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "light",
+        "width": 1200,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "dark",
+        "width": 375,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "dark",
+        "width": 768,
+        "overflow": 0,
+        "axeViolations": 0
+      },
+      {
+        "theme": "dark",
+        "width": 1200,
+        "overflow": 0,
+        "axeViolations": 0
+      }
+    ],
+    "pageErrors": [],
+    "frameNetworkRequests": 2,
+    "limits": [
+      "Controlled MCP host, not a screenshot or rendering test inside the installed Codex app. Actual host rendering must be verified separately."
+    ],
+    "status": "Earlier successful packaged-server check; not the final candidate or a Codex host lifecycle test"
+  },
+  "subsequentProviderRepeat": {
+    "status": "FAILED_USAGE_LIMIT",
+    "reason": "Account usage limit on the resumed turn; no current full provider pass claimed"
+  },
+  "candidateSha256": "a24311bc7810069ee2b04ca18662c6ee35b1684868a1d70fa6817c66ca9181aa",
+  "limits": [
+    "An earlier packaged-server check completed two actual Codex turns. A subsequent provider repeat hit account usage limits. That repeat remains a failure and is not a current provider pass.",
+    "Shared runner and store are unchanged from the successful provider run; current transport is covered independently. No current full coding lifecycle inside the actual Codex host is claimed."
+  ]
+}

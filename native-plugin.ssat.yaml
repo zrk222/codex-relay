@@ -1,0 +1,31 @@
+name: native-plugin
+modules:
+  - name: controller
+    path: src/relay/controller.mjs
+    imports: []
+    functions:
+      - name: createController
+        args: ["{ store", "runner = runTask }"]
+        returns: object
+        doc: Own process-local task dispatch and lifecycle transitions.
+  - name: native_server
+    path: src/relay/native-server.mjs
+    imports: []
+    functions:
+      - name: createNativeServer
+        args: ["options = {}"]
+        returns: object
+        doc: Register validated native tools and the bundled app resource.
+dependencies:
+  - from: native_server
+    to: controller
+invariants:
+  - name: no_dynamic_eval
+    forbid_pattern: "\\beval\\("
+    scopes:
+      - module: controller
+        symbol: createController
+        max_lines: 80
+      - module: native_server
+        symbol: createNativeServer
+        max_lines: 100
