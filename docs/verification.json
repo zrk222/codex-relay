@@ -1,7 +1,7 @@
 {
   "schema": "codex-relay.verification.v1",
-  "observedAt": "2026-11-03T08:11:55.255Z",
-  "sourceCandidateSha256": "cd77a51f7f00618071df6976dee69850f4ac3cd54ea614371034284b6a215b6f",
+  "observedAt": "2026-11-03T08:13:34.747Z",
+  "sourceCandidateSha256": "a6b4be737c9393c91ca41909a54ebccac0238ae314c87443898588dbfcf919a6",
   "environment": {
     "platform": "win32",
     "node": "v22.22.0",
@@ -233,7 +233,7 @@
     },
     {
       "path": "src/relay/store.mjs",
-      "sha256": "e60cc5db44a267055cc17fdad920d57bd745103d63c208da5ceeabba96b2538c",
+      "sha256": "fb5cd5647804d465674fcf91d0f32196d6ef731abd55c33944f0d18aca404eb2",
       "kind": "source"
     },
     {

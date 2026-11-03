@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, writeFileSync, renameSync, readdirSync, lstatSync, realpathSync, rmSync, existsSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync, renameSync, readdirSync, lstatSync, statSync, realpathSync, rmSync, existsSync } from 'node:fs';
 import { join, resolve, relative, sep } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -49,7 +49,9 @@ export function createStore(root) {
     const title = boundedText(input.title, 'title', 160);
     const prompt = boundedText(input.prompt, 'prompt', 16000);
     const repo = realpathSync(resolve(input.repo));
-    if (relative(realpathSync(git(repo, ['rev-parse', '--show-toplevel'])), repo) !== '') throw new Error('Use the repository root');
+    const gitRoot = realpathSync(git(repo, ['rev-parse', '--show-toplevel']));
+    const requestedIdentity = statSync(repo, { bigint: true }), gitIdentity = statSync(gitRoot, { bigint: true });
+    if (requestedIdentity.dev !== gitIdentity.dev || requestedIdentity.ino !== gitIdentity.ino) throw new Error(`Use the repository root: requested ${repo}; Git reports ${gitRoot}`);
     if (git(repo, ['status', '--porcelain'])) throw new Error('Source repository must be clean; commit or preserve existing changes first');
     if (directory === repo || directory.startsWith(`${repo}${sep}`)) throw new Error('State directory must be outside the source repository');
     const id = randomUUID();
