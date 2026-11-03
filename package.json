@@ -1,0 +1,43 @@
+{
+  "name": "codex-relay",
+  "version": "0.1.0",
+  "description": "A local task inbox and resumable coding adapter for Codex.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "bin": {
+    "codex-relay": "src/relay/cli.mjs"
+  },
+  "exports": {
+    ".": "./src/relay/runner.mjs",
+    "./store": "./src/relay/store.mjs"
+  },
+  "files": [
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "preview": "node src/relay/cli.mjs preview",
+    "smoke": "node scripts/smoke.mjs",
+    "browser:check": "node scripts/browser-check.mjs",
+    "design:compose": "node scripts/design-check.mjs"
+  },
+  "dependencies": {
+    "@openai/codex-sdk": "0.166.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zrk222/codex-relay.git"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "axe-core": "^4.14.0"
+  }
+}

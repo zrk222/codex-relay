@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Codex Relay is a local task inbox with isolated worktrees and resumable Codex threads. Explore the interactive sample preview.">
+  <meta name="color-scheme" content="light">
+  <title>Codex Relay — Every task has a next step</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='14' fill='%2317473c'/%3E%3Cpath d='M14 32V16h12a5 5 0 0 1 0 10H14m10 0 10 6' fill='none' stroke='%23d8f9a3' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#inbox">Skip to task inbox</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Codex Relay home"><span class="brand-mark" aria-hidden="true">R<span>↗</span></span><span>Codex <strong>Relay</strong></span></a>
+    <nav aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="https://github.com/zrk222/codex-relay#readme">Documentation <span aria-hidden="true">↗</span></a></nav>
+    <a class="repo-link" href="https://github.com/zrk222/codex-relay">View on GitHub <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="headline">
+      <div><p class="eyebrow"><span class="tiny-dot"></span> LOCAL CODEX ADAPTER <span class="version">v0.1.0</span></p><h1 id="headline">Every task has<br>a <em>next step.</em></h1><p class="lede">Keep Codex work organized and moving.<br>One task. Its own worktree. A clear handoff to you.</p></div>
+      <aside class="intro-note"><span class="note-kicker">LESS TO KEEP IN YOUR HEAD</span><p>Your task, its progress,<br>and the decision it needs.<br><strong>In one place.</strong></p><a href="#inbox">Explore the task inbox <span aria-hidden="true">↓</span></a></aside>
+    </section>
+    <section id="inbox" class="workspace" aria-labelledby="inbox-title">
+      <div class="workspace-top"><div class="workspace-heading"><span class="workspace-icon" aria-hidden="true">▤</span><div><h2 id="inbox-title">Your task inbox</h2><p id="mode-description">Interactive preview · sample data · no agents running</p></div></div><span class="mode-badge" id="mode-badge">SAMPLE DATA</span></div>
+      <div class="story-bar" id="story-bar"><div><span class="story-label">FOLLOW ONE TASK</span><p id="story-caption">Fix the settings form validation. See where you come in.</p></div><button id="story-next" class="primary-button" type="button">Walk through a task <span aria-hidden="true">→</span></button></div>
+      <div class="inbox-layout">
+        <div class="queue-pane"><div class="queue-title"><h3>Queue</h3><span id="task-count">4 tasks</span></div><div class="filters" role="group" aria-label="Filter task queue"><button type="button" data-filter="attention" aria-pressed="true">Needs you <span id="attention-count">2</span></button><button type="button" data-filter="working" aria-pressed="false">Working</button><button type="button" data-filter="all" aria-pressed="false">All</button></div><div id="task-list" class="task-list" aria-live="polite"></div><p class="queue-footnote"><span aria-hidden="true">↳</span> Open a task to see its next action.</p></div>
+        <article id="task-detail" class="detail-pane" aria-live="polite" aria-label="Selected task details"><p class="loading">Loading the sample inbox…</p></article>
+      </div>
+      <div class="workspace-footer"><span id="footer-state"><span class="tiny-dot"></span> Preview stays in your browser</span><span>Code locally. Review deliberately.</span></div>
+    </section>
+    <section class="workflow" id="how-it-works" aria-labelledby="workflow-title"><div class="section-label">FROM REQUEST TO REVIEW</div><h2 id="workflow-title">A clear handoff, at every stage.</h2><div class="workflow-grid"><article><span class="step-index">01 / START</span><h3>Give the work a home.</h3><p>Create a task from a clean repository. Relay gives it an isolated Git worktree and a place in your inbox.</p><code>codex-relay create</code></article><article><span class="step-index">02 / CONTINUE</span><h3>Pick up where you left off.</h3><p>Run Codex locally, then resume the saved thread when you have an answer or more work to do.</p><code>codex-relay run &lt;id&gt;</code></article><article><span class="step-index">03 / DECIDE</span><h3>See what needs you.</h3><p>Read the question, inspect the changes, and review recorded checks. You decide when the task is done.</p><code>codex-relay serve</code></article></div></section>
+    <section class="boundary"><div><h2>Local work. Visible decisions.</h2><p>The adapter runs through your local Codex authentication. The public preview uses sample data and never connects to your files or runs an agent.</p></div><a class="secondary-button" href="https://github.com/zrk222/codex-relay#quickstart">Start with the quickstart <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="./">Codex Relay</a><p>Independent open-source project · MIT licensed<br>Inspired by DeepSeek’s dsh-superagent research prototype. Not affiliated with OpenAI or DeepSeek.</p><a href="https://github.com/zrk222/codex-relay/blob/main/docs/INTEGRATION.md">Read the integration design <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

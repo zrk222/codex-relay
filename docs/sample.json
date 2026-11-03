@@ -1,0 +1,9 @@
+{
+  "mode": "sample",
+  "tasks": [
+    {"id":"sample-01","title":"Fix the settings form validation","repo":"acme/web-app","branch":"relay/settings-validation","directory":"isolated worktree","threadId":"saved Codex thread","status":"needs_review","summary":"The sample change adds a required-name message and keeps the saved value unchanged until validation passes.","question":"","checks":["Illustrative check: required-name validation","Illustrative check: existing value is preserved"],"updatedAt":"sample","sample":true},
+    {"id":"sample-02","title":"Handle empty search results","repo":"acme/web-app","branch":"relay/search-empty-state","directory":"isolated worktree","threadId":"saved Codex thread","status":"needs_answer","summary":"The sample task pauses before choosing a new product behavior.","question":"Should an empty search show suggested pages or a clear-results action?","checks":["No sample decision has been applied."],"updatedAt":"sample","sample":true},
+    {"id":"sample-03","title":"Add pagination boundary checks","repo":"acme/api","branch":"relay/pagination-checks","directory":"isolated worktree","threadId":"saved Codex thread","status":"working","summary":"This sample status illustrates a local coding turn in progress.","question":"","checks":[],"updatedAt":"sample","sample":true},
+    {"id":"sample-04","title":"Clarify the local setup guide","repo":"acme/docs","branch":"relay/setup-guide","directory":"isolated worktree","threadId":"saved Codex thread","status":"done","summary":"The example task has reached a human-reviewed completion state. No real repository was changed.","question":"","checks":["Illustrative completion; no real test execution."],"updatedAt":"sample","sample":true}
+  ]
+}

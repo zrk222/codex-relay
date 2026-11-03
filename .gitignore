@@ -1,0 +1,14 @@
+node_modules/
+.relay/
+.factory/
+.forge/
+.specline/
+.prestige/
+artifacts/
+*.tgz
+.env*
+templates/
+personas/
+context/
+skills/
+envelopes/

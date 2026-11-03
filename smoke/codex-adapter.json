@@ -1,0 +1,7 @@
+{
+  "checks": [
+    {"name":"store-contract","run":"node --input-type=module -e \"import {createStore} from './src/relay/store.mjs'; import assert from 'node:assert/strict'; import {mkdtempSync,rmSync} from 'node:fs'; import {tmpdir} from 'node:os'; import {join} from 'node:path'; const root=mkdtempSync(join(tmpdir(),'relay-proof-')); try { const store=createStore(root); assert.deepEqual(store.list(),[]); assert.throws(()=>store.read('../'),/Invalid task id/); } finally { rmSync(root,{recursive:true,force:true}); }\"","timeout_s":45,"must_fail_on_stub":true},
+    {"name":"completed-task-refused-and-unlocked","run":"node --input-type=module -e \"import {runTask} from './src/relay/runner.mjs'; import assert from 'node:assert/strict'; let released=false; const store={lock:()=>()=>{released=true},read:()=>({status:'done'})}; await assert.rejects(runTask(store,'fixture',{}),/Completed tasks/); assert.equal(released,true);\"","timeout_s":45,"must_fail_on_stub":true},
+    {"name":"loopback-post-refused","run":"node --input-type=module -e \"import {startServer} from './src/relay/server.mjs'; import assert from 'node:assert/strict'; const server=await startServer({demo:true,port:0}); try { assert.equal(server.address().address,'127.0.0.1'); const response=await fetch('http://127.0.0.1:'+server.address().port,{method:'POST'}); assert.equal(response.status,405); } finally { server.closeAllConnections(); await new Promise(resolve=>server.close(resolve)); }\"","timeout_s":45,"must_fail_on_stub":true}
+  ]
+}

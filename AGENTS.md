@@ -1,0 +1,3 @@
+# Codex Relay
+
+Read the scoped spec and docs/VERIFICATION.md before implementation. Route development through Code Factory doctor, SpecLine, ForgeLine, and the workflow audit. Keep source under src/relay and the static sample preview under docs. Preserve user work and never commit task state, credentials, or provider transcripts. Run npm test and the declared smoke checks before release. Dependency decisions belong in adr/. Publishing requires operator authorization; this initial public repository and preview release was requested on 2026-11-03. Samples must remain visibly labelled. No automatic merge, push, or GitHub messaging in the adapter.

@@ -1,0 +1,40 @@
+name: codex-adapter
+modules:
+  - name: store
+    path: src/relay/store.mjs
+    imports: []
+    functions:
+      - name: createStore
+        args: [root]
+        returns: object
+        doc: Open local task persistence.
+  - name: runner
+    path: src/relay/runner.mjs
+    imports: []
+    functions:
+      - name: runTask
+        args: [store, id, options]
+        returns: Promise
+        doc: Run or resume a single exclusive Codex task.
+  - name: server
+    path: src/relay/server.mjs
+    imports: []
+    functions:
+      - name: startServer
+        args: [options]
+        returns: Promise
+        doc: Start the loopback read-only task viewer.
+dependencies: []
+invariants:
+  - name: no_dynamic_eval
+    forbid_pattern: "\\beval\\("
+    scopes:
+      - module: store
+        symbol: createStore
+        max_lines: 120
+      - module: runner
+        symbol: runTask
+        max_lines: 120
+      - module: server
+        symbol: startServer
+        max_lines: 120

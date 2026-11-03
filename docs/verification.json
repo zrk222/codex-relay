@@ -1,0 +1,264 @@
+{
+  "schema": "codex-relay.verification.v1",
+  "observedAt": "2026-11-03T08:07:11.619Z",
+  "sourceCandidateSha256": "0d931aafcbd4e2a2061aeef48202f0a988e31ec51821766d7393babe3ee4265a",
+  "environment": {
+    "platform": "win32",
+    "node": "v22.22.0",
+    "codexSdk": "0.166.0"
+  },
+  "unitTests": {
+    "passed": 13,
+    "failed": 0
+  },
+  "liveSmoke": {
+    "schema": "codex-relay.smoke.v1",
+    "observedAt": "2026-11-03T07:47:06.299Z",
+    "providerCalls": 2,
+    "isolatedWorktree": true,
+    "originalFilePreserved": true,
+    "actualTestCommand": "node --test greet.test.mjs",
+    "actualTestPassed": true,
+    "resumedSameThread": true,
+    "finalStatus": "needs_review",
+    "environment": {
+      "platform": "win32",
+      "node": "v22.22.0"
+    },
+    "scope": "One temporary greeting fixture and a resume turn; not production or DSH parity evidence."
+  },
+  "browser": {
+    "schema": "codex-relay.browser.v1",
+    "observedAt": "2026-11-03T07:43:50.174Z",
+    "target": "local loopback preview",
+    "interactions": [
+      "3 filters",
+      "task selection",
+      "5 sample story steps",
+      "keyboard activation"
+    ],
+    "pageErrors": [],
+    "failedRequests": [],
+    "screenshots": [
+      {
+        "name": "mobile",
+        "width": 375,
+        "height": 900,
+        "overflow": 0,
+        "axeViolations": 0,
+        "path": "docs/preview-mobile.png"
+      },
+      {
+        "name": "tablet",
+        "width": 768,
+        "height": 1024,
+        "overflow": 0,
+        "axeViolations": 0,
+        "path": "docs/preview-tablet.png"
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 1000,
+        "overflow": 0,
+        "axeViolations": 0,
+        "path": "docs/preview-desktop.png"
+      }
+    ],
+    "metrics": {
+      "lcp": 56,
+      "cls": 0.07318957117151331
+    },
+    "limits": [
+      "Initial screenshots establish a baseline; no earlier baseline exists for visual regression.",
+      "Lab LCP/CLS only; no field Core Web Vitals or INP claim.",
+      "Automated axe and keyboard checks do not establish complete accessibility conformance."
+    ]
+  },
+  "sourceFiles": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "9b14f249bcc9d64be2076319996a7c9d900e7ea57356893700efd76ec9e4a8c5",
+      "kind": "source"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "96ffe3dfeff367a13516ffb1b1044351491731d7fa88eeaf189def0294ca18cb",
+      "kind": "source"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "7e800a8fb0f76d7703230594e545820fad9d303e7d12060bc38fc9d5077e17c6",
+      "kind": "source"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "3437a650a8e4665f580b8b5687eeeb5410ff30223bdd771f9d07c3018b71fd9a",
+      "kind": "source"
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "9e09fb46355d9f36d5bb155c0d06b8a328cd87c20f4247049638a20420230ce1",
+      "kind": "source"
+    },
+    {
+      "path": "README.md",
+      "sha256": "54333502f8edff974c189b70e6b4985efef05bfbd82946222cb57e46daa10927",
+      "kind": "source"
+    },
+    {
+      "path": "adr/001-codex-sdk.md",
+      "sha256": "ba13cc7e8991c74e9f14f0045facc2269440e2f88659ae811b78e9339ac37dfa",
+      "kind": "source"
+    },
+    {
+      "path": "codex-adapter.ssat.yaml",
+      "sha256": "a04f1f2ec1dd591111bbbaeac9a82511e62e93e5dde443a59154dda13d91b9a4",
+      "kind": "source"
+    },
+    {
+      "path": "docs/.nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "source"
+    },
+    {
+      "path": "docs/INTEGRATION.md",
+      "sha256": "49ebc24c8656733c6b9c40e27ad16c5bbb432a702430ce91b964b815c4b0a862",
+      "kind": "source"
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "sha256": "a4563d54f22cb8f0c9396b4cb2b20d2e17d5457ba4d5a44699515531e9073b4d",
+      "kind": "source"
+    },
+    {
+      "path": "docs/app.js",
+      "sha256": "19f4e92b387d53dc8c7d022770b3ddf68fd858d147dbc6cad5dc91412a1ba09d",
+      "kind": "source"
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "9599df98250dda36bee7ec5188bf181a87bef252694bc5487291e825b9897352",
+      "kind": "source"
+    },
+    {
+      "path": "docs/preview-desktop.png",
+      "sha256": "ad1bf22d9fc6d89d8520a8763718e845caba891eaa8ba39bde1b7d0ff995867e",
+      "kind": "source"
+    },
+    {
+      "path": "docs/preview-mobile.png",
+      "sha256": "b4d1971c9c3a623da081dd4d8bf1f91e90860fae58098553a798ec4889a716c5",
+      "kind": "source"
+    },
+    {
+      "path": "docs/preview-tablet.png",
+      "sha256": "847c8cfca0e9944048a4d41cd01be6cb996e79685f6d4dac1064251287ddc866",
+      "kind": "source"
+    },
+    {
+      "path": "docs/sample.json",
+      "sha256": "60a7ad052139691c011a0c224074d8520c98c2958ec50975675a6a1bee3ea798",
+      "kind": "source"
+    },
+    {
+      "path": "docs/style.css",
+      "sha256": "210144315028969966645e8b79aed99a52ab27040d429a68327ebe5f09faaf11",
+      "kind": "source"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "fed1e93855fbca7c111e6980fc8eb59ab67c3b819c3bdb9c8f7133ef34b80e20",
+      "kind": "source"
+    },
+    {
+      "path": "package.json",
+      "sha256": "f7ed93f33df9d4d5bc5a035e41953cc5fc1fcb99ddfa5cf86adf6005cb4db0eb",
+      "kind": "source"
+    },
+    {
+      "path": "plans/codex-adapter.md",
+      "sha256": "6f781490dda5bb7d34bfa28339b5a61ad9bb1566e76eafafcaa5585d8f35c08a",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/browser-check.mjs",
+      "sha256": "c6ca6124a6675801bbe629ff7a050a819fb18640016b0a3f9f0249c9193bc56f",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/check.mjs",
+      "sha256": "892a0f6a4c14fbbfc1e48735902b03177c389c84a9198c0e466d06d1238a8781",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/design-check.mjs",
+      "sha256": "39d0a0fe72393af10722f42a26fc928137eec08aa53b2658af98d8c8b6b65060",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/record-verification.mjs",
+      "sha256": "4ad9c1cabf8a8e5ef858dfc84b32a4feced4871380cd5cee813c6697bbd8903a",
+      "kind": "source"
+    },
+    {
+      "path": "scripts/smoke.mjs",
+      "sha256": "0c05d7cd1a88f3d250de71ee9d3dd567c76ce9bddc8d2faee8cbfa3953617738",
+      "kind": "source"
+    },
+    {
+      "path": "smoke/codex-adapter.json",
+      "sha256": "04cd46dc89c8339a2023c86182097c40569d744ed2cbc26c7a4d3c0bbe6c8fff",
+      "kind": "source"
+    },
+    {
+      "path": "specs/codex-adapter.md",
+      "sha256": "5d16f28d0b5b2297fe67b76106c46b7fb50a2d50fb3a80b7e08fa4f40cac4d9b",
+      "kind": "source"
+    },
+    {
+      "path": "src/relay/cli.mjs",
+      "sha256": "6a2d98770cee7a1a7577840625c6b158c18ada2e1382b5bc234cd378bb269870",
+      "kind": "source"
+    },
+    {
+      "path": "src/relay/runner.mjs",
+      "sha256": "1bcd22d263bce6c95e2ffe6fc3b3ef7aed55ab2b8a6feea4ad26c44bf802541c",
+      "kind": "source"
+    },
+    {
+      "path": "src/relay/server.mjs",
+      "sha256": "7bc7d23bc87755d7986aa5bcfcec8003e2344d72341013e434dde8d39fd054d7",
+      "kind": "source"
+    },
+    {
+      "path": "src/relay/store.mjs",
+      "sha256": "f04b1754d711dae622b8a4f720af9a9b37f21b6815b1c16a027c3a1af9ed7068",
+      "kind": "source"
+    },
+    {
+      "path": "tests/helpers.mjs",
+      "sha256": "045168b86b9ec71969cf9118ecf1f8b6506d4eeb5e4e802add42490158b48dfa",
+      "kind": "source"
+    },
+    {
+      "path": "tests/runner.test.mjs",
+      "sha256": "2b571ca2d795bb6051b93e8e4ed21ef6ff34229323d7b800a6064306846dd099",
+      "kind": "source"
+    },
+    {
+      "path": "tests/server.test.mjs",
+      "sha256": "7288228669652cfa6505ef3b0c7620e1bc5b84116916551bf3516236a488750d",
+      "kind": "source"
+    },
+    {
+      "path": "tests/store.test.mjs",
+      "sha256": "1321f6b40ab68fb37c952981f31a581ac012c963e41fb2aa2a8e92534c34f71a",
+      "kind": "source"
+    }
+  ],
+  "limits": [
+    "Controlled fixture and local browser observations only.",
+    "No production, DSH parity, field performance, full accessibility, or productivity claim."
+  ]
+}
